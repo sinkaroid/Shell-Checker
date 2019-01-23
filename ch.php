@@ -2,7 +2,6 @@
 .entryfield {width:400px;height:150px;}
 .subbtn {background:#b70505;color:white;border: 1px solid #000; padding:6px 6px 6px 6px;}
 .subbtn:hover {background:#c0bfbf;color:#000000;}
-
 .image {
     width: 250px;
     height: 250px;
